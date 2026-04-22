@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 💬 Discusion / pregunta
+    url: https://github.com/OWNER/REPO/discussions
+    about: Para debatir ideas antes de crear un issue formal. Reemplaza OWNER/REPO con los valores reales.

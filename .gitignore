@@ -1,0 +1,66 @@
+# =============================================================
+# Archivos que NUNCA deben subirse al repositorio.
+# =============================================================
+
+# Dependencias
+node_modules/
+**/node_modules/
+
+# Builds / outputs
+dist/
+build/
+out/
+coverage/
+*.tsbuildinfo
+
+# Variables de entorno (¡CRÍTICO!)
+.env
+.env.local
+.env.*.local
+.env.development
+.env.staging
+.env.production
+!.env.example
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Editor / IDE
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.recommended.json
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Docker
+.docker/
+
+# Terraform
+**/.terraform/
+*.tfstate
+*.tfstate.*
+*.tfvars
+!terraform.tfvars.example
+.terraform.lock.hcl
+
+# Secretos / claves
+*.pem
+*.key
+*-credentials.json
+gcp-key*.json
+service-account*.json
+
+# Archivos temporales
+*.tmp
+.cache/
