@@ -1,0 +1,75 @@
+/* Moviendo Leyendas — Design tokens
+   Fuente única de verdad. Cualquier valor visual NUEVO debe pasar por aquí.
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap');
+
+:root {
+  /* ===== COLORES ===== */
+  --ml-black: #0e0e0e;
+  --ml-earth: #8B5E3C;
+  --ml-earth-dark: #6B4528;
+  --ml-cream: #DFC4AD;
+  --ml-cream-light: #ECDFD0;
+  --ml-bg: #F4F2EF;
+  --ml-bg-soft: #FAF8F5;
+  --ml-border: #E8E3DC;
+  --ml-border-strong: #D5CDC1;
+
+  --ml-text: #0e0e0e;
+  --ml-text-muted: #6b6660;
+  --ml-text-subtle: #9a948d;
+
+  --ml-danger: #B23A3A;
+  --ml-success: #4F7C4A;
+  --ml-warning: #C28A2D;
+
+  /* ===== TIPOGRAFÍA ===== */
+  --ml-font-display: 'Bebas Neue', 'Impact', sans-serif;
+  --ml-font-serif:   'DM Serif Display', 'Georgia', serif;
+  --ml-font-sans:    'DM Sans', -apple-system, 'Inter', sans-serif;
+
+  /* Escala tipo */
+  --ml-text-xs:   12px;
+  --ml-text-sm:   14px;
+  --ml-text-base: 16px;
+  --ml-text-lg:   18px;
+  --ml-text-xl:   22px;
+  --ml-text-2xl:  28px;
+  --ml-text-3xl:  36px;
+  --ml-text-4xl:  48px;
+  --ml-text-display: 72px;
+
+  /* ===== ESPACIADO (8pt) ===== */
+  --ml-space-1: 4px;
+  --ml-space-2: 8px;
+  --ml-space-3: 12px;
+  --ml-space-4: 16px;
+  --ml-space-5: 24px;
+  --ml-space-6: 32px;
+  --ml-space-7: 48px;
+  --ml-space-8: 64px;
+  --ml-space-9: 96px;
+
+  /* ===== RADIOS ===== */
+  --ml-radius-sm: 4px;
+  --ml-radius-md: 8px;
+  --ml-radius-lg: 14px;
+  --ml-radius-pill: 999px;
+
+  /* ===== SOMBRAS ===== */
+  --ml-shadow-1: 0 1px 2px rgba(14, 14, 14, 0.04);
+  --ml-shadow-2: 0 4px 12px rgba(14, 14, 14, 0.06);
+  --ml-shadow-3: 0 12px 32px rgba(14, 14, 14, 0.10);
+
+  /* ===== TRANSICIONES ===== */
+  --ml-ease: cubic-bezier(0.4, 0, 0.2, 1);
+  --ml-fast: 150ms var(--ml-ease);
+  --ml-mid:  250ms var(--ml-ease);
+
+  /* ===== LAYOUT ===== */
+  --ml-container: 1200px;
+  --ml-container-narrow: 720px;
+  --ml-sidebar-w: 240px;
+  --ml-header-h: 72px;
+}

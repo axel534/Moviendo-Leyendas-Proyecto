@@ -42,6 +42,7 @@ services:
       LOG_LEVEL: debug
       DATABASE_URL: postgres://${POSTGRES_USER:-cowork}:${POSTGRES_PASSWORD:-cowork_dev_password}@postgres:5432/${POSTGRES_DB:-cowork_dev}
       CORS_ORIGIN: http://localhost:5173
+      ADMIN_TOKEN: ${ADMIN_TOKEN:-axel123}
     ports:
       - "8000:8000"
     volumes:

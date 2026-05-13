@@ -21,6 +21,13 @@ const configSchema = z.object({
 
   // CORS
   CORS_ORIGIN: z.string().default('http://localhost:5173'),
+
+  // Admin panel (legacy fallback, ya no se usa para nuevas auths)
+  ADMIN_TOKEN: z.string().min(4).default('axel123'),
+
+  // JWT staff backoffice
+  JWT_SECRET: z.string().min(16).default('ml-dev-secret-cambiame-en-produccion-2026'),
+  JWT_EXPIRES_DAYS: z.coerce.number().int().positive().default(7),
 });
 
 const parsed = configSchema.safeParse(process.env);

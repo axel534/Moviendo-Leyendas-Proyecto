@@ -1,0 +1,92 @@
+.auth-page {
+  padding: var(--ml-space-7) 0 var(--ml-space-9);
+  min-height: calc(100vh - var(--ml-header-h));
+  background:
+    radial-gradient(circle at 20% 10%, var(--ml-cream-light) 0%, transparent 40%),
+    var(--ml-bg);
+}
+
+.auth-back {
+  display: inline-block;
+  font-size: var(--ml-text-sm);
+  color: var(--ml-text-muted);
+  margin-bottom: var(--ml-space-4);
+}
+.auth-back:hover { color: var(--ml-black); }
+
+.auth-card {
+  background: white;
+  border: 1px solid var(--ml-border);
+  border-radius: var(--ml-radius-lg);
+  padding: var(--ml-space-7);
+  box-shadow: var(--ml-shadow-2);
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+.auth-title {
+  font-family: var(--ml-font-serif);
+  font-size: var(--ml-text-3xl);
+  line-height: 1.1;
+  margin: 8px 0 6px;
+}
+.auth-sub {
+  color: var(--ml-text-muted);
+  margin: 0 0 var(--ml-space-6);
+}
+
+.auth-tipo-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--ml-space-3);
+  margin-bottom: var(--ml-space-5);
+}
+.auth-tipo {
+  background: var(--ml-bg-soft);
+  border: 2px solid var(--ml-border);
+  border-radius: var(--ml-radius-md);
+  padding: var(--ml-space-4);
+  text-align: left;
+  cursor: pointer;
+  transition: var(--ml-fast);
+}
+.auth-tipo:hover { border-color: var(--ml-earth); }
+.auth-tipo.is-active {
+  background: var(--ml-cream-light);
+  border-color: var(--ml-black);
+}
+.auth-tipo-title {
+  font-family: var(--ml-font-serif);
+  font-size: var(--ml-text-lg);
+  margin-bottom: 4px;
+}
+.auth-tipo-sub {
+  font-size: var(--ml-text-sm);
+  color: var(--ml-text-muted);
+}
+
+.auth-err {
+  background: #F1D8D8;
+  color: #8B2F2F;
+  border-radius: var(--ml-radius-md);
+  padding: 10px 14px;
+  font-size: var(--ml-text-sm);
+  margin-bottom: var(--ml-space-3);
+}
+
+.auth-foot {
+  margin-top: var(--ml-space-5);
+  text-align: center;
+  font-size: var(--ml-text-sm);
+  color: var(--ml-text-muted);
+}
+.auth-foot a {
+  color: var(--ml-earth);
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+@media (max-width: 500px) {
+  .auth-tipo-grid { grid-template-columns: 1fr; }
+  .auth-card { padding: var(--ml-space-5); }
+}

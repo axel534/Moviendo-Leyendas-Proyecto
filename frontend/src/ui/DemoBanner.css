@@ -1,0 +1,72 @@
+.demo-banner {
+  position: fixed;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9998;
+  background: var(--ml-black);
+  color: var(--ml-bg);
+  padding: 10px 14px;
+  border-radius: var(--ml-radius-pill);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  box-shadow: var(--ml-shadow-3);
+  max-width: calc(100vw - 32px);
+  font-size: var(--ml-text-sm);
+  animation: demo-banner-in 350ms var(--ml-ease);
+}
+@keyframes demo-banner-in {
+  from { transform: translate(-50%, 20px); opacity: 0; }
+  to   { transform: translate(-50%, 0); opacity: 1; }
+}
+
+.demo-banner-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--ml-cream);
+  flex-shrink: 0;
+  animation: demo-banner-pulse 1.6s ease-in-out infinite;
+}
+@keyframes demo-banner-pulse {
+  0%, 100% { opacity: 1; }
+  50%      { opacity: 0.4; }
+}
+
+.demo-banner-txt {
+  line-height: 1.35;
+}
+.demo-banner-txt strong { color: var(--ml-cream); }
+
+.demo-banner-link {
+  background: transparent;
+  border: 1px solid rgba(244, 242, 239, 0.3);
+  color: var(--ml-cream);
+  padding: 4px 10px;
+  border-radius: var(--ml-radius-pill);
+  font-size: 12px;
+  cursor: pointer;
+  font-family: inherit;
+  transition: var(--ml-fast);
+}
+.demo-banner-link:hover { border-color: var(--ml-cream); }
+
+.demo-banner-x {
+  background: transparent;
+  border: 0;
+  color: rgba(244, 242, 239, 0.6);
+  cursor: pointer;
+  font-size: 20px;
+  padding: 0 4px;
+  line-height: 1;
+}
+.demo-banner-x:hover { color: white; }
+
+@media (max-width: 600px) {
+  .demo-banner {
+    flex-wrap: wrap;
+    bottom: 8px;
+    border-radius: var(--ml-radius-lg);
+  }
+  .demo-banner-txt { flex: 1; min-width: 0; }
+}

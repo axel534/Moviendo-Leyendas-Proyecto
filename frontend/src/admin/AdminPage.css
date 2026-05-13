@@ -1,0 +1,272 @@
+.adm {
+  min-height: 100vh;
+  background: var(--ml-bg);
+  color: var(--ml-text);
+  font-family: var(--ml-font-sans);
+}
+
+.adm-shell {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--ml-space-6) var(--ml-space-5) var(--ml-space-9);
+}
+
+.adm-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--ml-space-5);
+}
+
+.adm-title {
+  font-family: var(--ml-font-serif);
+  font-size: var(--ml-text-2xl);
+  letter-spacing: -0.01em;
+}
+
+.adm-subtitle {
+  color: var(--ml-text-muted);
+  font-size: var(--ml-text-sm);
+  margin-top: 2px;
+}
+
+.adm-logout {
+  background: transparent;
+  border: 1px solid var(--ml-border-strong);
+  color: var(--ml-text-muted);
+  padding: 8px 14px;
+  border-radius: var(--ml-radius-md);
+  font-size: var(--ml-text-sm);
+  cursor: pointer;
+  transition: var(--ml-fast);
+}
+.adm-logout:hover { background: var(--ml-cream-light); color: var(--ml-black); }
+
+.adm-tabs {
+  display: flex;
+  gap: 4px;
+  border-bottom: 1px solid var(--ml-border);
+  margin-bottom: var(--ml-space-4);
+}
+.adm-tab {
+  padding: 12px 18px;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid transparent;
+  font-size: var(--ml-text-sm);
+  color: var(--ml-text-muted);
+  cursor: pointer;
+  font-family: inherit;
+}
+.adm-tab.is-active {
+  color: var(--ml-black);
+  border-bottom-color: var(--ml-earth);
+  font-weight: 600;
+}
+.adm-tab .pill {
+  background: var(--ml-earth);
+  color: white;
+  font-size: 11px;
+  padding: 1px 7px;
+  border-radius: var(--ml-radius-pill);
+  margin-left: 6px;
+  font-weight: 600;
+}
+
+.adm-filters {
+  display: flex;
+  gap: 6px;
+  margin-bottom: var(--ml-space-4);
+}
+.adm-chip {
+  padding: 6px 14px;
+  font-size: var(--ml-text-xs);
+  border-radius: var(--ml-radius-pill);
+  border: 1px solid var(--ml-border-strong);
+  background: white;
+  color: var(--ml-text-muted);
+  cursor: pointer;
+  font-family: inherit;
+  font-weight: 500;
+}
+.adm-chip.is-active {
+  background: var(--ml-black);
+  color: white;
+  border-color: var(--ml-black);
+}
+
+.adm-card-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.adm-card {
+  background: white;
+  border: 1px solid var(--ml-border);
+  border-radius: var(--ml-radius-lg);
+  padding: var(--ml-space-4);
+  display: grid;
+  grid-template-columns: 56px 1fr auto;
+  gap: var(--ml-space-4);
+  align-items: center;
+}
+.adm-avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--ml-cream);
+  object-fit: cover;
+}
+.adm-avatar-placeholder {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--ml-cream);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ml-earth-dark);
+  font-family: var(--ml-font-serif);
+  font-size: 24px;
+}
+.adm-info { min-width: 0; }
+.adm-name {
+  font-family: var(--ml-font-serif);
+  font-size: var(--ml-text-lg);
+  margin-bottom: 2px;
+}
+.adm-meta {
+  color: var(--ml-text-muted);
+  font-size: var(--ml-text-sm);
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.adm-meta span::after {
+  content: '·';
+  margin-left: 8px;
+  color: var(--ml-text-subtle);
+}
+.adm-meta span:last-child::after { content: ''; }
+.adm-bio {
+  color: var(--ml-text);
+  font-size: var(--ml-text-sm);
+  margin-top: 6px;
+  line-height: 1.45;
+}
+
+.adm-actions { display: flex; gap: 6px; align-items: center; }
+.adm-btn {
+  border: 1px solid transparent;
+  padding: 8px 16px;
+  border-radius: var(--ml-radius-md);
+  font-size: var(--ml-text-sm);
+  font-weight: 600;
+  cursor: pointer;
+  font-family: inherit;
+  transition: var(--ml-fast);
+}
+.adm-btn-approve {
+  background: var(--ml-black);
+  color: white;
+}
+.adm-btn-approve:hover { background: #2a2624; }
+.adm-btn-reject {
+  background: white;
+  color: var(--ml-text-muted);
+  border-color: var(--ml-border-strong);
+}
+.adm-btn-reject:hover { color: var(--ml-danger); border-color: var(--ml-danger); }
+
+.adm-badge {
+  font-size: 11px;
+  padding: 4px 10px;
+  border-radius: var(--ml-radius-pill);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.adm-badge-aprobado {
+  background: #DFEAD8;
+  color: #3F6539;
+}
+.adm-badge-rechazado {
+  background: #F1D8D8;
+  color: #8B2F2F;
+}
+
+.adm-empty {
+  text-align: center;
+  padding: var(--ml-space-9) var(--ml-space-5);
+  color: var(--ml-text-muted);
+  background: white;
+  border: 1px dashed var(--ml-border-strong);
+  border-radius: var(--ml-radius-lg);
+}
+
+.adm-loading {
+  text-align: center;
+  padding: var(--ml-space-7);
+  color: var(--ml-text-muted);
+}
+
+/* Login gate */
+.adm-gate {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background:
+    radial-gradient(circle at 20% 10%, var(--ml-cream-light) 0%, transparent 40%),
+    var(--ml-bg);
+}
+.adm-gate-card {
+  background: white;
+  padding: var(--ml-space-6);
+  border-radius: var(--ml-radius-lg);
+  border: 1px solid var(--ml-border);
+  width: 400px;
+  max-width: calc(100vw - 32px);
+  box-shadow: var(--ml-shadow-2);
+}
+.adm-gate-title {
+  font-family: var(--ml-font-serif);
+  font-size: var(--ml-text-xl);
+  margin-bottom: 4px;
+}
+.adm-gate-sub {
+  color: var(--ml-text-muted);
+  font-size: var(--ml-text-sm);
+  margin-bottom: var(--ml-space-5);
+}
+.adm-gate-input {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid var(--ml-border-strong);
+  border-radius: var(--ml-radius-md);
+  font-size: var(--ml-text-base);
+  margin-bottom: 12px;
+  box-sizing: border-box;
+  font-family: inherit;
+}
+.adm-gate-input:focus { outline: none; border-color: var(--ml-black); box-shadow: 0 0 0 3px rgba(14,14,14,0.06); }
+.adm-gate-btn {
+  width: 100%;
+  padding: 12px;
+  background: var(--ml-black);
+  color: white;
+  border: none;
+  border-radius: var(--ml-radius-md);
+  font-size: var(--ml-text-base);
+  font-weight: 600;
+  cursor: pointer;
+  font-family: inherit;
+  transition: var(--ml-fast);
+}
+.adm-gate-btn:hover { background: #2a2624; }
+.adm-gate-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+.adm-gate-error {
+  color: var(--ml-danger);
+  font-size: var(--ml-text-sm);
+  margin-bottom: 12px;
+}

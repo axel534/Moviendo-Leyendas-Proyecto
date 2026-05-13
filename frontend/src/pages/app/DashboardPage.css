@@ -1,0 +1,236 @@
+.dash { max-width: 1100px; margin: 0 auto; }
+
+.dash-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-areas:
+    "perfil match"
+    "matches acuerdos"
+    "actividad actividad";
+  gap: var(--ml-space-4);
+}
+
+.dash-card {
+  background: white;
+  border: 1px solid var(--ml-border);
+  border-radius: var(--ml-radius-lg);
+  padding: var(--ml-space-5);
+}
+
+.dash-perfil { grid-area: perfil; }
+.dash-match-cta { grid-area: match; background: var(--ml-black); color: var(--ml-bg); }
+.dash-matches { grid-area: matches; }
+.dash-acuerdos { grid-area: acuerdos; }
+.dash-actividad { grid-area: actividad; }
+
+@media (max-width: 900px) {
+  .dash-grid {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "perfil"
+      "match"
+      "matches"
+      "acuerdos"
+      "actividad";
+  }
+}
+
+/* PERFIL */
+.dash-perfil-head {
+  display: grid;
+  grid-template-columns: 72px 1fr auto;
+  gap: var(--ml-space-4);
+  align-items: center;
+  margin-bottom: var(--ml-space-4);
+}
+.dash-avatar {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.dash-name {
+  font-family: var(--ml-font-serif);
+  font-size: var(--ml-text-2xl);
+  margin: 4px 0 2px;
+}
+.dash-ciudad {
+  font-size: var(--ml-text-sm);
+  color: var(--ml-text-muted);
+}
+.dash-score { text-align: right; }
+.dash-score-n {
+  font-family: var(--ml-font-display);
+  font-size: 48px;
+  line-height: 1;
+  color: var(--ml-earth);
+}
+.dash-score-l {
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  color: var(--ml-text-muted);
+  text-transform: uppercase;
+  margin-top: 2px;
+}
+
+.dash-progress-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: var(--ml-text-xs);
+  color: var(--ml-text-muted);
+  margin-bottom: var(--ml-space-4);
+}
+.dash-progress-track {
+  flex: 1;
+  height: 6px;
+  background: var(--ml-border);
+  border-radius: var(--ml-radius-pill);
+  overflow: hidden;
+}
+.dash-progress-fill {
+  height: 100%;
+  background: var(--ml-earth);
+  transition: width var(--ml-mid);
+}
+
+.dash-perfil-cta {
+  display: flex;
+  gap: 8px;
+  padding-top: var(--ml-space-3);
+  border-top: 1px solid var(--ml-border);
+}
+
+/* MATCH CTA */
+.dash-match-cta .ml-eyebrow { color: var(--ml-cream); }
+.dash-match-title {
+  font-family: var(--ml-font-serif);
+  font-size: var(--ml-text-xl);
+  margin: 8px 0 12px;
+  color: white;
+  line-height: 1.2;
+}
+.dash-match-sub {
+  color: rgba(244, 242, 239, 0.7);
+  font-size: var(--ml-text-sm);
+  margin-bottom: var(--ml-space-4);
+}
+.dash-match-cta .ml-btn-primary {
+  background: var(--ml-cream);
+  color: var(--ml-black);
+}
+.dash-match-cta .ml-btn-primary:hover { background: white; }
+
+/* SECCIONES */
+.dash-sec-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: var(--ml-space-3);
+}
+.dash-sec-link {
+  font-size: var(--ml-text-xs);
+  color: var(--ml-earth);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+/* MATCH LIST */
+.dash-match-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.dash-match-item {
+  display: grid;
+  grid-template-columns: 40px 1fr auto;
+  gap: 12px;
+  align-items: center;
+  padding: 10px;
+  border-radius: var(--ml-radius-md);
+  border: 1px solid transparent;
+  transition: var(--ml-fast);
+}
+.dash-match-item:hover {
+  background: var(--ml-bg);
+  border-color: var(--ml-border);
+}
+.dash-match-item img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--ml-cream);
+}
+.dash-match-name { font-weight: 600; font-size: var(--ml-text-sm); }
+.dash-match-meta {
+  font-size: var(--ml-text-xs);
+  color: var(--ml-text-muted);
+}
+.dash-match-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+}
+.dash-pct {
+  font-family: var(--ml-font-display);
+  font-size: 22px;
+  letter-spacing: 0.04em;
+  color: var(--ml-black);
+}
+
+/* ACUERDOS */
+.dash-acuerdo-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  margin-bottom: 10px;
+}
+.dash-acuerdo-title {
+  font-family: var(--ml-font-serif);
+  font-size: var(--ml-text-lg);
+}
+.dash-acuerdo-marca {
+  font-size: var(--ml-text-xs);
+  color: var(--ml-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+.dash-acuerdo-monto {
+  font-family: var(--ml-font-display);
+  font-size: 20px;
+  letter-spacing: 0.04em;
+}
+.dash-acuerdo-meta {
+  font-size: var(--ml-text-xs);
+  color: var(--ml-text-muted);
+  margin-top: 8px;
+}
+
+/* ACTIVIDAD */
+.dash-act-list { list-style: none; padding: 0; margin: 0; }
+.dash-act-item {
+  display: flex;
+  gap: 14px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--ml-border);
+  align-items: flex-start;
+}
+.dash-act-item:last-child { border-bottom: 0; }
+.dash-act-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--ml-earth);
+  margin-top: 6px;
+  flex-shrink: 0;
+}
+.dash-act-match .dash-act-dot { background: var(--ml-success); }
+.dash-act-reminder .dash-act-dot { background: var(--ml-warning); }
+.dash-act-txt { font-size: var(--ml-text-sm); }
+.dash-act-time {
+  font-size: var(--ml-text-xs);
+  color: var(--ml-text-muted);
+  margin-top: 2px;
+}

@@ -11,11 +11,18 @@ import { config } from '../../config.js';
  * NUNCA importes 'pg' directamente en las rutas o servicios. Pasa por aquí.
  */
 
+// Habilita SSL si la URL es de Supabase / hosted (NODE_ENV=production o sslmode en URL)
+const useSsl =
+  config.NODE_ENV === 'production' ||
+  /sslmode=require/.test(config.DATABASE_URL) ||
+  /supabase\.co/.test(config.DATABASE_URL);
+
 const pool = new Pool({
   connectionString: config.DATABASE_URL,
   max: 10,
   idleTimeoutMillis: 30_000,
   connectionTimeoutMillis: 5_000,
+  ssl: useSsl ? { rejectUnauthorized: false } : undefined,
 });
 
 pool.on('error', (err) => {
