@@ -7,10 +7,11 @@ export default defineConfig({
   server: {
     host: '0.0.0.0',
     port: 5173,
-    // Proxy API requests to backend during development
+    // Proxy API requests to backend during development only.
+    // En producción, el cliente usa VITE_API_BASE_URL para apuntar directo al backend.
     proxy: {
       '/api': {
-        target: 'http://localhost:8000',
+        target: process.env.VITE_PROXY_TARGET ?? 'http://backend:8000',
         changeOrigin: true,
       },
     },

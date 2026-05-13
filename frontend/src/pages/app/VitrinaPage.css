@@ -1,0 +1,120 @@
+.vtr { max-width: 1100px; margin: 0 auto; }
+
+.vtr-toolbar {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 8px;
+  margin-bottom: var(--ml-space-3);
+}
+.vtr-search { min-width: 280px; }
+.vtr-filters {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-bottom: var(--ml-space-4);
+  padding-bottom: var(--ml-space-3);
+  border-bottom: 1px solid var(--ml-border);
+}
+
+.vtr-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+  gap: var(--ml-space-4);
+}
+
+.vtr-post {
+  background: white;
+  border: 1px solid var(--ml-border);
+  border-radius: var(--ml-radius-lg);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.vtr-post-head {
+  display: grid;
+  grid-template-columns: 40px 1fr auto;
+  gap: 10px;
+  align-items: center;
+  padding: var(--ml-space-3) var(--ml-space-4);
+  border-bottom: 1px solid var(--ml-border);
+}
+.vtr-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+.vtr-name {
+  font-weight: 600;
+  font-size: var(--ml-text-sm);
+}
+.vtr-meta {
+  font-size: 11px;
+  color: var(--ml-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.vtr-image-wrap {
+  aspect-ratio: 4/3;
+  background: var(--ml-cream-light);
+  overflow: hidden;
+}
+.vtr-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.vtr-actions {
+  display: flex;
+  gap: 12px;
+  padding: var(--ml-space-3) var(--ml-space-4);
+  align-items: center;
+}
+.vtr-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: transparent;
+  border: 0;
+  padding: 6px;
+  border-radius: var(--ml-radius-md);
+  color: var(--ml-text);
+  font-size: var(--ml-text-sm);
+  cursor: pointer;
+  transition: var(--ml-fast);
+}
+.vtr-btn:hover { color: var(--ml-earth); }
+.vtr-btn.is-liked { color: var(--ml-danger); }
+.vtr-btn-right { margin-left: auto; }
+
+.vtr-body {
+  padding: 0 var(--ml-space-4) var(--ml-space-4);
+}
+.vtr-text {
+  margin: 0 0 8px;
+  font-size: var(--ml-text-sm);
+  line-height: 1.5;
+}
+.vtr-text strong { font-weight: 600; }
+.vtr-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 6px;
+}
+.vtr-tag {
+  color: var(--ml-earth);
+  font-size: var(--ml-text-xs);
+  font-weight: 500;
+  cursor: pointer;
+}
+.vtr-tag:hover { text-decoration: underline; }
+.vtr-tiempo {
+  font-size: 11px;
+  color: var(--ml-text-subtle);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}

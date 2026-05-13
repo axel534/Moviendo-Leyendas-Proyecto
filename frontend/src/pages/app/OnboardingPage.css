@@ -1,0 +1,177 @@
+.onb-page {
+  background: var(--ml-bg);
+  min-height: 100vh;
+  padding: var(--ml-space-7) var(--ml-space-4);
+}
+.onb-shell {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.onb-progress {
+  height: 4px;
+  background: var(--ml-border);
+  border-radius: var(--ml-radius-pill);
+  overflow: hidden;
+  margin-bottom: var(--ml-space-4);
+}
+.onb-progress-bar {
+  height: 100%;
+  background: var(--ml-earth);
+  transition: width var(--ml-mid);
+}
+
+.onb-steps {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: var(--ml-space-6);
+}
+.onb-step {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: var(--ml-text-sm);
+  color: var(--ml-text-subtle);
+}
+.onb-step-n {
+  width: 24px; height: 24px;
+  border-radius: 50%;
+  background: var(--ml-border);
+  color: var(--ml-text-muted);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 12px;
+}
+.onb-step.is-active .onb-step-n {
+  background: var(--ml-black);
+  color: white;
+}
+.onb-step.is-active .onb-step-label { color: var(--ml-black); font-weight: 600; }
+.onb-step.is-done .onb-step-n {
+  background: var(--ml-earth);
+  color: white;
+}
+@media (max-width: 700px) {
+  .onb-step-label { display: none; }
+}
+
+.onb-card {
+  background: white;
+  border: 1px solid var(--ml-border);
+  border-radius: var(--ml-radius-lg);
+  padding: var(--ml-space-6);
+  box-shadow: var(--ml-shadow-2);
+}
+.onb-title {
+  font-family: var(--ml-font-serif);
+  font-size: var(--ml-text-3xl);
+  margin: 6px 0 var(--ml-space-4);
+}
+.onb-help { color: var(--ml-text-muted); margin: 0 0 var(--ml-space-5); }
+.onb-body { min-height: 200px; }
+
+.onb-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.onb-chip {
+  padding: 8px 14px;
+  background: var(--ml-bg);
+  border: 1px solid var(--ml-border-strong);
+  border-radius: var(--ml-radius-pill);
+  font-size: var(--ml-text-sm);
+  cursor: pointer;
+  transition: var(--ml-fast);
+}
+.onb-chip:hover { border-color: var(--ml-black); }
+.onb-chip.is-on {
+  background: var(--ml-black);
+  color: white;
+  border-color: var(--ml-black);
+}
+
+.onb-radios { display: flex; flex-wrap: wrap; gap: 8px; }
+.onb-radio {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 16px;
+  background: var(--ml-bg);
+  border: 1px solid var(--ml-border-strong);
+  border-radius: var(--ml-radius-md);
+  cursor: pointer;
+  font-size: var(--ml-text-sm);
+  transition: var(--ml-fast);
+}
+.onb-radio input { accent-color: var(--ml-black); }
+.onb-radio:hover { border-color: var(--ml-black); }
+.onb-radio.is-on, .onb-radio:has(input:checked) {
+  background: var(--ml-cream-light);
+  border-color: var(--ml-black);
+}
+
+.onb-plans {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--ml-space-3);
+}
+.onb-plan {
+  display: block;
+  background: var(--ml-bg);
+  border: 2px solid var(--ml-border);
+  border-radius: var(--ml-radius-lg);
+  padding: var(--ml-space-4);
+  cursor: pointer;
+  transition: var(--ml-fast);
+  position: relative;
+}
+.onb-plan input { position: absolute; opacity: 0; }
+.onb-plan:hover { border-color: var(--ml-earth); }
+.onb-plan.is-on {
+  background: var(--ml-cream-light);
+  border-color: var(--ml-black);
+}
+.onb-plan-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: var(--ml-space-3);
+}
+.onb-plan-name {
+  font-family: var(--ml-font-display);
+  font-size: 22px;
+  letter-spacing: 0.05em;
+}
+.onb-plan-price {
+  font-family: var(--ml-font-serif);
+  font-size: var(--ml-text-xl);
+}
+.onb-plan-price span {
+  font-size: var(--ml-text-xs);
+  color: var(--ml-text-muted);
+  margin-left: 2px;
+}
+.onb-plan-feats {
+  margin: 0;
+  padding: 0 0 0 18px;
+  font-size: var(--ml-text-sm);
+  color: var(--ml-text-muted);
+}
+.onb-plan-feats li { margin-bottom: 4px; }
+
+@media (max-width: 700px) {
+  .onb-plans { grid-template-columns: 1fr; }
+}
+
+.onb-actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: var(--ml-space-6);
+  padding-top: var(--ml-space-5);
+  border-top: 1px solid var(--ml-border);
+}
