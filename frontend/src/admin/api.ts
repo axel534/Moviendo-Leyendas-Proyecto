@@ -5,8 +5,16 @@ import type {
   Marca,
   Talento,
 } from './types';
+import {
+  mockAdminApi,
+  mockStaffAuth,
+  mockStaffManage,
+  mockIntegracionesApi,
+} from '../lib/mockApi';
 
 const BASE = (import.meta.env.VITE_API_BASE_URL ?? '').replace(/\/$/, '');
+const IS_DEV = import.meta.env.DEV;
+const DEMO_MODE = !BASE && !IS_DEV;
 const JWT_KEY = 'ml_staff_jwt';
 
 export interface StaffSession {
@@ -70,7 +78,7 @@ async function staffFetch<T>(path: string, init?: RequestInit): Promise<ApiRespo
   catch { return { success: false, error: `Respuesta inválida (${res.status})` }; }
 }
 
-export const staffAuthApi = {
+const realStaffAuthApi = {
   login: async (email: string, password: string) => {
     const res = await fetch(`${BASE}/api/v1/auth/staff/login`, {
       method: 'POST',
@@ -83,6 +91,14 @@ export const staffAuthApi = {
   me: () => staffFetch<StaffSession>('/auth/staff/me'),
 };
 
+export const staffAuthApi = DEMO_MODE
+  ? {
+      login: (email: string, password: string) =>
+        mockStaffAuth.login(email, password) as Promise<ApiResponse<{ token: string; staff: StaffSession }>>,
+      me: () => mockStaffAuth.me() as Promise<ApiResponse<StaffSession>>,
+    }
+  : realStaffAuthApi;
+
 export interface StaffMember {
   id: string;
   email: string;
@@ -93,7 +109,7 @@ export interface StaffMember {
   last_login_at: string | null;
 }
 
-export const staffManageApi = {
+const realStaffManageApi = {
   list:   () => staffFetch<StaffMember[]>('/staff'),
   create: (data: { email: string; password: string; nombre: string; rol: 'owner' | 'admin' }) =>
     staffFetch<StaffMember>('/staff', { method: 'POST', body: JSON.stringify(data) }),
@@ -102,6 +118,10 @@ export const staffManageApi = {
   remove: (id: string) =>
     staffFetch<unknown>(`/staff/${id}`, { method: 'DELETE' }),
 };
+
+export const staffManageApi = DEMO_MODE
+  ? (mockStaffManage as unknown as typeof realStaffManageApi)
+  : realStaffManageApi;
 
 // Integraciones
 export type IntegracionSlug = 'railway' | 'secureshell' | 'whapi';
@@ -119,13 +139,17 @@ export interface IntegracionRow {
 
 export interface TestResult { ok: boolean; info: string | null; error: string | null }
 
-export const integracionesApi = {
+const realIntegracionesApi = {
   list: () => staffFetch<IntegracionRow[]>('/integraciones'),
   save: (slug: IntegracionSlug, payload: { config?: Record<string, unknown>; activa?: boolean }) =>
     staffFetch<IntegracionRow>(`/integraciones/${slug}`, { method: 'PUT', body: JSON.stringify(payload) }),
   test: (slug: IntegracionSlug) =>
     staffFetch<TestResult>(`/integraciones/${slug}/test`, { method: 'POST' }),
 };
+
+export const integracionesApi = DEMO_MODE
+  ? (mockIntegracionesApi as unknown as typeof realIntegracionesApi)
+  : realIntegracionesApi;
 
 export interface AdminListFilters {
   q?: string;
@@ -141,7 +165,7 @@ function buildQs(estado: FiltroEstado, f: AdminListFilters): string {
   return p.toString();
 }
 
-export const adminApi = {
+const realAdminApi = {
   listTalentos: (estado: FiltroEstado = 'todos', filters: AdminListFilters = {}) =>
     adminFetch<Talento[]>(`/talentos?${buildQs(estado, filters)}`),
 
@@ -165,3 +189,20 @@ export const adminApi = {
     return res.success;
   },
 };
+
+export const adminApi = DEMO_MODE
+  ? {
+      listTalentos: (estado: FiltroEstado = 'todos', filters: AdminListFilters = {}) =>
+        mockAdminApi.listTalentos(estado, filters) as Promise<ApiResponse<Talento[]>>,
+      listMarcas: (estado: FiltroEstado = 'todos', filters: AdminListFilters = {}) =>
+        mockAdminApi.listMarcas(estado, filters) as Promise<ApiResponse<Marca[]>>,
+      decideTalento: (id: string, decision: Decision) =>
+        mockAdminApi.decideTalento(id, decision) as Promise<ApiResponse<Talento>>,
+      decideMarca: (id: string, decision: Decision) =>
+        mockAdminApi.decideMarca(id, decision) as Promise<ApiResponse<Marca>>,
+      validateSession: async (): Promise<boolean> => {
+        const res = await staffAuthApi.me();
+        return res.success;
+      },
+    }
+  : realAdminApi;

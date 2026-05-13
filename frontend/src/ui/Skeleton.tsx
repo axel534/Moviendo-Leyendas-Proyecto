@@ -19,7 +19,7 @@ export function Skeleton({ width = '100%', height = 16, radius = 'sm', className
   return <span className={`skel ${className}`} style={style} aria-hidden="true" />;
 }
 
-export function SkeletonCard({ height = 80 }: { height?: number }) {
+export function SkeletonCard() {
   return (
     <div className="skel-card">
       <Skeleton width={56} height={56} radius="full" />

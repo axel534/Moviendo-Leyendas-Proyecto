@@ -2,6 +2,7 @@ import { Routes, Route, Navigate } from 'react-router-dom';
 import { AuthProvider } from './auth/AuthContext';
 import RequireAuth from './auth/RequireAuth';
 import { ToastProvider } from './ui/Toast';
+import DemoBanner from './ui/DemoBanner';
 
 import PublicShell from './layout/PublicShell';
 import AppShell from './layout/AppShell';
@@ -68,6 +69,7 @@ export default function App() {
         {/* Fallback */}
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
+      <DemoBanner />
       </ToastProvider>
     </AuthProvider>
   );

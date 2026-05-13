@@ -152,7 +152,7 @@ function IntegracionCard({ row, onSaved, onTest }: CardProps) {
   const [activa, setActiva] = useState(row.activa);
   const [saving, setSaving] = useState(false);
   const [testing, setTesting] = useState(false);
-  const [testResult, setTestResult] = useState<TestResult | null>(null);
+  const [, setTestResult] = useState<TestResult | null>(null);
   const [msg, setMsg] = useState<{ tone: 'success' | 'error'; texto: string } | null>(null);
 
   function setField(k: string, v: unknown) {

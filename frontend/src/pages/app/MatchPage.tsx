@@ -57,7 +57,7 @@ export default function MatchPage() {
   const [q, setQ] = useState('');
   const [pctMin, setPctMin] = useState<number | undefined>();
   const [budgetIdx, setBudgetIdx] = useState(0);
-  const [industria, setIndustria] = useState('');
+  const [industria] = useState('');
   const [sort, setSort] = useState<'compatibilidad' | 'recencia'>('compatibilidad');
   const [matches, setMatches] = useState<MatchRow[]>([]);
   const [loading, setLoading] = useState(true);

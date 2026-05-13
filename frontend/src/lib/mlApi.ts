@@ -4,10 +4,14 @@
  */
 
 import type { UserType } from '../auth/AuthContext';
+import { mockMlApi, mockAdminApi } from './mockApi';
 
-// En dev: ruta relativa /api/v1 (proxy de Vite hacia backend container).
-// En prod: VITE_API_BASE_URL apunta al backend (ej: https://moviendo-api.up.railway.app).
+// Modo demo: si VITE_API_BASE_URL está vacío Y no estamos en dev (donde Vite proxea a /api),
+// usamos mock backend. En dev con docker-compose, el proxy de Vite atiende /api/v1 al backend.
 const API_BASE = (import.meta.env.VITE_API_BASE_URL ?? '').replace(/\/$/, '');
+const IS_DEV = import.meta.env.DEV;
+export const DEMO_MODE = !API_BASE && !IS_DEV;
+
 const BASE = `${API_BASE}/api/v1`;
 
 export interface ApiResponse<T> {
@@ -46,6 +50,11 @@ export interface SessionUserApi {
   bio?: string | null;
   disciplina?: string | null;
   industria?: string | null;
+  edad?: number | null;
+  telefono?: string | null;
+  redes_seguidores?: number;
+  presupuesto_mxn?: number | null;
+  sitio_web?: string | null;
 }
 
 export interface MatchRow {
@@ -151,7 +160,7 @@ export interface PostVitrinaRow {
   foto_url: string | null;
 }
 
-export const mlApi = {
+const realMlApi = {
   // Auth
   login: (email: string) =>
     call<SessionUserApi>('/auth/login', { method: 'POST', body: JSON.stringify({ email }) }),
@@ -231,6 +240,10 @@ async function adminCall<T>(path: string, init?: RequestInit): Promise<ApiRespon
   catch { return { success: false, error: `Respuesta inválida (${res.status})` }; }
 }
 
-export const adminMlApi = {
+const realAdminMlApi = {
   stats: () => adminCall<AdminStats>('/stats'),
 };
+
+// Switch automático: si estamos en modo demo, exportamos el mock.
+export const mlApi = DEMO_MODE ? mockMlApi : realMlApi;
+export const adminMlApi = DEMO_MODE ? { stats: () => mockAdminApi.stats() } : realAdminMlApi;
